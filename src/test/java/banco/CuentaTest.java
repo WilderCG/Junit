@@ -1,40 +1,40 @@
 package banco;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CuentaTest {
 
-    @Test
-    void getNumero() {
-    }
+    private Cuenta c1;
 
-    @Test
-    void setNumero() {
+    @BeforeEach
+    public void creaCuenta() {
+         c1 = new Cuenta("ES1234561234", 100);
     }
 
     @Test
     void getSaldo() {
-        Cuenta c1 = new Cuenta("ES1234561234", 100);
-        float saldito = c1.getSaldo();
-        assertEquals(100,c1.getSaldo(), "eres mu tonta");
+        assertEquals(100, c1.getSaldo(), "eres mu tonta");
 
     }
 
     @Test
     void setSaldo() {
+        c1.setSaldo(150);
+        assertEquals(150, c1.getSaldo(), "Saldo incorrecto");
     }
 
     @Test
     void ingresarDinero() {
+        c1.ingresarDinero(100);
+        assertEquals(200, c1.getSaldo(), "error, saldo no coincide");
     }
 
     @Test
     void extraerDinero() {
-    }
-
-    @Test
-    void mostrarCuenta() {
+        c1.extraerDinero(10);
+        assertEquals(90, c1.getSaldo(), "Error, saldo no coincide");
+        assertThrows(ArithmeticException.class, () -> c1.extraerDinero(500), "No va la excepción");
     }
 }
