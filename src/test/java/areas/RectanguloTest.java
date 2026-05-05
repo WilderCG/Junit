@@ -38,9 +38,12 @@ class RectanguloTest {
 
     @Test
     void getAltura() {
+        assertEquals(10.0, r1.getAltura(), "Error");
     }
 
     @Test
     void setAltura() {
+        r1.setAltura(20.0);
+        assertEquals(20.0, r1.getAltura(), "Error");
     }
 }
