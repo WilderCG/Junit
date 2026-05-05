@@ -41,7 +41,7 @@ public class Punto {
     
 
     /**
-     * Devuelve la distancia a otro punto (T� Pit�goras)
+     * Devuelve la distancia a otro punto (Teorema de Pitagoras)
      *
      */
     public double distancia(Punto p2) {
